@@ -1,4 +1,4 @@
-import { Controller, Get, Req, Post } from '@nestjs/common';
+import { Controller, Get, Req, Post, Body } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { Request } from 'express';
 
@@ -38,7 +38,7 @@ export class AdminController {
      * @returns  created admin field as JSON object
      */
     @Post()
-    add(@Req() request: Request) {
-        return this.adminService.add(request.body);
+    add(@Body() body: Request) {
+        return this.adminService.add(body);
     }
 }
